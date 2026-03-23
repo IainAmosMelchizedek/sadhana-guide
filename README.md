@@ -158,8 +158,10 @@ The interface was designed to embody the practice itself — clean, still, unhur
 
 ## About
 
-This tool was built as a prototype for Safe Passage Strategies LLC — a data sovereignty consultancy helping small businesses reclaim control over their data and build meaningful digital assets.
+This tool was built by Iain Melchizedek under the banner of Safe Passage Technologies.
+
+**Building tools that go beyond spirituality.**
 
 The Sadhana Guide is one demonstration of a broader principle: that AI agents can carry genuine philosophical depth, not just functional utility.
 
-&copy; 2026 Iain Melchizedek — Safe Passage Strategies LLC. All rights reserved.
+&copy; 2026 Iain Melchizedek — Safe Passage Technologies. All rights reserved.
