@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sadhana Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --border: #e8e4df;
+      --text-primary: #1a1814;
+      --text-secondary: #6b6560;
+      --text-muted: #9c9590;
+      --accent: #4a6741;
+      --accent-light: #f0f4ef;
+      --danger: #8b4a3a;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .header p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      font-style: italic;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 1.5rem auto;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .arrival-text {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+      white-space: pre-line;
+    }
+
+    .arrival-text strong {
+      color: var(--text-primary);
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.875rem 1rem;
+      font-family: 'Georgia', serif;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 120px;
+      line-height: 1.7;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.875rem;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 1.5rem;
+    }
+
+    button:hover { opacity: 0.85; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      margin-top: 0.75rem;
+    }
+
+    .response-text {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+    }
+
+    .response-text strong,
+    .response-text b {
+      color: var(--text-primary);
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    .session-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hidden { display: none; }
+
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <h1>Sadhana Guide</h1>
+      <p>a gentle companion for the beginning practitioner</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Step 1: Name -->
+    <div id="step-name" class="card">
+      <div class="section-label">Before we begin</div>
+      <label for="username">What is your name?</label>
+      <input type="text" id="username" placeholder="Enter your name" />
+      <button onclick="submitName()">Continue</button>
+    </div>
+
+    <!-- Step 2: Arrival -->
+    <div id="step-arrival" class="card hidden">
+      <div class="section-label">Arrival</div>
+      <div id="welcome-message" class="session-count"></div>
+      <div class="arrival-text">Before we begin, let's take a moment to arrive.
+
+Close your eyes if that feels comfortable. Place one hand on your heart.
+
+Take a slow breath in through your nose... and release it gently through your nose.
+
+Once more — breathing in... and letting everything that doesn't serve you dissolve.
+
+Now, from that quiet place — not your mind, but your heart and body — ask yourself:
+
+<strong>Where am I right now?</strong>
+
+What do you notice? Heavy or light? Restless or still? Open or closed? Tired or awake?
+
+There is no wrong answer. Just describe what is actually here.</div>
+      <div style="margin-top: 2rem;">
+        <label for="state">I am here</label>
+        <textarea id="state" placeholder="Describe your state in your own words..."></textarea>
+      </div>
+      <button onclick="submitState()">Receive your practice</button>
+    </div>
+
+    <!-- Step 3: Practice -->
+    <div id="step-practice" class="card hidden">
+      <div class="section-label">Your practice</div>
+      <div id="loading-practice" class="loading">Listening...</div>
+      <div id="practice-content" class="hidden">
+        <div id="recommendation" class="response-text"></div>
+        <button onclick="openJournal()">Open practice journal</button>
+        <button class="btn-secondary" onclick="requestPatterns()">See my pattern insights</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Patterns -->
+    <div id="step-patterns" class="card hidden">
+      <div class="section-label">Pattern insights</div>
+      <div id="loading-patterns" class="loading">Reading your path...</div>
+      <div id="patterns-content" class="hidden">
+        <div id="patterns-text" class="response-text"></div>
+        <button onclick="openJournal()">Open practice journal</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Journal -->
+    <div id="step-journal" class="card hidden">
+      <div class="section-label">Practice journal</div>
+      <div id="journal-prompt-text" class="arrival-text" style="margin-bottom: 2rem;"></div>
+      <label for="breath-reflection">Your reflection</label>
+      <textarea id="breath-reflection" style="min-height: 200px;" placeholder="Write here..."></textarea>
+      <div style="margin-top: 1.5rem;">
+        <label for="closing-feeling">And finally — how do you feel now, in this moment, having completed your practice?</label>
+        <textarea id="closing-feeling" style="min-height: 80px;" placeholder=""></textarea>
+      </div>
+      <button onclick="submitJournal()">Save journal entry</button>
+    </div>
+
+    <!-- Step 6: Complete -->
+    <div id="step-complete" class="card hidden">
+      <div class="section-label">Session complete</div>
+      <div class="arrival-text" style="text-align: center; padding: 1rem 0;">
+        Your journal has been saved.
+
+Go gently. Your practice awaits.
+      </div>
+      <button onclick="resetSession()">Begin a new session</button>
+    </div>
+
+    <div class="footer">Sadhana Guide &nbsp;&mdash;&nbsp; a Safe Passage Strategies prototype</div>
+
+  </div>
+
+  <script>
+    let currentUsername = "";
+    let currentSessionId = null;
+
+    function show(id) {
+      document.querySelectorAll(".card").forEach(el => el.classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function submitName() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) return;
+      currentUsername = username;
+      show("step-arrival");
+    }
+
+    async function submitState() {
+      const state = document.getElementById("state").value.trim();
+      if (!state) return;
+      show("step-practice");
+      document.getElementById("loading-practice").classList.remove("hidden");
+      document.getElementById("practice-content").classList.add("hidden");
+
+      const res = await fetch("/api/session/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: currentUsername, state }),
+      });
+
+      const data = await res.json();
+      currentSessionId = data.sessionId;
+
+      const welcome = document.getElementById("welcome-message");
+      welcome.textContent = data.isReturning
+        ? `Welcome back. Session ${data.sessionCount}.`
+        : `Welcome. This is your first session.`;
+
+      document.getElementById("recommendation").innerHTML = formatResponse(data.recommendation);
+      document.getElementById("loading-practice").classList.add("hidden");
+      document.getElementById("practice-content").classList.remove("hidden");
+    }
+
+    async function requestPatterns() {
+      show("step-patterns");
+      document.getElementById("loading-patterns").classList.remove("hidden");
+      document.getElementById("patterns-content").classList.add("hidden");
+
+      const res = await fetch("/api/session/patterns", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: currentUsername }),
+      });
+
+      const data = await res.json();
+      document.getElementById("patterns-text").innerHTML = formatResponse(data.insights);
+      document.getElementById("loading-patterns").classList.add("hidden");
+      document.getElementById("patterns-content").classList.remove("hidden");
+    }
+
+    async function openJournal() {
+      const res = await fetch("/api/journal/prompt");
+      const data = await res.json();
+      document.getElementById("journal-prompt-text").textContent = data.prompt;
+      show("step-journal");
+    }
+
+    async function submitJournal() {
+      const breathReflection = document.getElementById("breath-reflection").value.trim();
+      const closingFeeling = document.getElementById("closing-feeling").value.trim();
+      if (!breathReflection || !closingFeeling) return;
+
+      await fetch("/api/session/journal", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId: currentSessionId, breathReflection, closingFeeling }),
+      });
+
+      show("step-complete");
+    }
+
+    function resetSession() {
+      currentUsername = "";
+      currentSessionId = null;
+      document.getElementById("username").value = "";
+      document.getElementById("state").value = "";
+      document.getElementById("breath-reflection").value = "";
+      document.getElementById("closing-feeling").value = "";
+      show("step-name");
+    }
+
+    function formatResponse(text) {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, "<em>$1</em>")
+        .replace(/\*(.*?)\*/g, "<em>$1</em>")
+        .replace(/\n/g, "<br>");
+    }
+  </script>
+</body>
+</html>
