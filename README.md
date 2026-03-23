@@ -4,7 +4,7 @@
 
 Live at: [http://95.216.201.23:3001](http://95.216.201.23:3001)
 
-Built by [Iain Melchizedek](https://github.com/IainAmosMelchizedek) — Safe Passage Strategies LLC
+Built by [Iain Melchizedek](https://github.com/IainAmosMelchizedek) — Safe Passage Technologies
 
 ---
 
