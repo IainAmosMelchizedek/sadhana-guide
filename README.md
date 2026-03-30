@@ -157,10 +157,10 @@ The interface was designed to embody the practice itself — clean, still, unhur
 
 ## About
 
-This tool was built by Iain Melchizedek under the banner of Safe Passage Technologies.
+This tool was built by Iain Melchizedek under the banner of Safe Passage Strategies.
 
 **Building tools that go beyond spirituality.**
 
 The Sadhana Guide is one demonstration of a broader principle: that AI agents can carry genuine philosophical depth, not just functional utility.
 
-&copy; 2026 Iain Melchizedek — Safe Passage Technologies. All rights reserved.
+&copy; 2026 Iain Melchizedek — Safe Passage Strategies. All rights reserved.
